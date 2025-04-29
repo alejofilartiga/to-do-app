@@ -8,7 +8,7 @@ let todos = [];
 // Fetch todos from the server
 async function fetchTodos() {
     try {
-        const response = await fetch('https://to-do-api-production-52bd.up.railway.app/todo');
+        const response = await fetch('https://to-do-api-kappa-ruby.vercel.app/todo');
         const data = await response.json();
         todos = data;
         renderTodos();
@@ -41,7 +41,7 @@ async function addTodo(e) {
     const title = todoInput.value.trim();
     if (title) {
         try {
-            const response = await fetch('https://to-do-api-production-52bd.up.railway.app/todo', {
+            const response = await fetch('https://to-do-api-kappa-ruby.vercel.app/todo', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ async function addTodo(e) {
 // Delete todo
 async function deleteTodo(id) {
     try {
-        await fetch(`https://to-do-api-production-52bd.up.railway.app/todo/${id}`, {
+        await fetch(`https://to-do-api-kappa-ruby.vercel.app/todo/${id}`, {
             method: 'DELETE',
         });
         todos = todos.filter(todo => todo._id !== id);
@@ -75,7 +75,7 @@ async function deleteTodo(id) {
 async function toggleTodo(id) {
     try {
         const todo = todos.find(t => t._id === id);
-        const response = await fetch(`https://to-do-api-production-52bd.up.railway.app/todo/${id}`, {
+        const response = await fetch(`https://to-do-api-kappa-ruby.vercel.app/todo/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
